@@ -1,4 +1,4 @@
-﻿function Get-AwsMetadata {
+﻿Function Get-AwsMetadata {
 <#
 .Synopsis
    Simplified command to get local host information from an EC2
@@ -7,7 +7,7 @@
    requires no additional configuration beyond having an EC2 running the
    metadata services which is typically running by default on launch of
    an EC2 instance within AWS environment.
-   Information available can be found at 
+   Information available can be found at
    https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-data-categories.html
 .EXAMPLE
    Get-AwsMetadata -Property "ami-id"
@@ -23,8 +23,8 @@
         [Parameter(Mandatory=$true,
                    ValueFromPipelineByPropertyName=$true,
                    Position=0)]
-        [ValidateSet("ami-id", 
-                     "ami-launch-index", 
+        [ValidateSet("ami-id",
+                     "ami-launch-index",
                      "ami-manifest-path",
                      "hostname",
                      "instance-action",
@@ -47,7 +47,7 @@
         $base_url = 'http://169.254.169.254/latest/meta-data/'
         try {
             $response = iwr -uri $base_url -UseBasicParsing -ErrorAction Stop
-        } 
+        }
         catch {
             write-error "The system is not running on AWS EC2" -ErrorAction Stop
         }
