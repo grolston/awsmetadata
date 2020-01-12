@@ -46,4 +46,6 @@
     }
 }
 
-New-Alias -Name "AwsHostInfo" -Value Get-AwsMetadata -Description "Intuitive simple name for Get-AwsMetadata" -Option ReadOnly
+if(!(Get-Alias -Name "AwsHostInfo" -ErrorAction Ignore)){
+    New-Alias -Name "AwsHostInfo" -Value Get-AwsMetadata -Description "Intuitive simple name for Get-AwsMetadata" -Option ReadOnly
+}
