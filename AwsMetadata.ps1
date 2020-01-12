@@ -1,10 +1,9 @@
-﻿Function Get-AwsMetadata {
+﻿function Get-AwsMetadata {
     [CmdletBinding()]
     [Alias()]
     [OutputType([string])]
     Param
     (
-        # Property or category of metadata to access
         [Parameter(Mandatory=$true,
                    ValueFromPipelineByPropertyName=$true,
                    Position=0)]
