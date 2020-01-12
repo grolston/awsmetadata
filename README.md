@@ -8,6 +8,6 @@ Load the function into memory:
 
 ```powershell
 
-iex $(iwr https://raw.githubusercontent.com/grolston/awsmetadata/master/AwsMetadata.ps1 -UseBasicParsing).Content
+iex $(iwr 'https://raw.githubusercontent.com/grolston/awsmetadata/master/AwsMetadata.ps1' -UseBasicParsing).Content
 
 ```

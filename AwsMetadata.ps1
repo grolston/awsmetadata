@@ -1,5 +1,6 @@
-﻿## echo "loading function"
-
+﻿function Test-IsAdmin {
+    ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")
+  }#close Test-IsAdmin
 function Get-AwsMetadata {
     [CmdletBinding()]
     [Alias()]
