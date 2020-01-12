@@ -1,4 +1,6 @@
-﻿function Get-AwsMetadata {
+﻿echo "loading function"
+
+function Get-AwsMetadata {
     [CmdletBinding()]
     [Alias()]
     [OutputType([string])]
