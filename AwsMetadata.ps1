@@ -1,12 +1,24 @@
-function Test-IsAdmin {
-    ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")
-  }#close Test-IsAdmin
 function Get-AwsMetadata {
+<#
+.Synopsis
+   Simplified command to get local host information from an EC2
+.DESCRIPTION
+   Simplified command to access the AWS metadata of the EC2. The function
+   requires no additional configuration beyond having an EC2 running the
+   metadata services which is typically running by default on launch of
+   an EC2 instance within AWS environment.
+   Information available can be found at
+   https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-data-categories.html
+.EXAMPLE
+   Get-AwsMetadata -Property "ami-id"
+.EXAMPLE
+   AwsHostInfo "ami-id"
+#>
     [CmdletBinding()]
     [Alias()]
     [OutputType([string])]
-    Param
-    (
+    Param(
+        # Property or category of metadata to access
         [Parameter(Mandatory=$true,
                    ValueFromPipelineByPropertyName=$true,
                    Position=0)]
@@ -31,7 +43,7 @@ function Get-AwsMetadata {
     )
 
     Begin{
-        $base_url = "http://169.254.169.254/latest/meta-data/"
+        $base_url = 'http://169.254.169.254/latest/meta-data/'
         try {
             $response = iwr -uri $base_url -UseBasicParsing -ErrorAction Stop
         }
