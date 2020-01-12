@@ -30,7 +30,7 @@ function Get-AwsMetadata {
     )
 
     Begin{
-        $base_url = 'http://169.254.169.254/latest/meta-data/'
+        $base_url = "http://169.254.169.254/latest/meta-data/"
         try {
             $response = iwr -uri $base_url -UseBasicParsing -ErrorAction Stop
         }
