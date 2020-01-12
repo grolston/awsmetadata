@@ -1,5 +1,4 @@
-﻿Function Get-AwsMetadata {
-<#
+﻿<#
 .Synopsis
    Simplified command to get local host information from an EC2
 .DESCRIPTION
@@ -14,6 +13,7 @@
 .EXAMPLE
    AwsHostInfo "ami-id"
 #>
+Function Get-AwsMetadata {
     [CmdletBinding()]
     [Alias()]
     [OutputType([string])]
