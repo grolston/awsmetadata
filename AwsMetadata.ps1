@@ -1,4 +1,4 @@
-﻿echo "loading function"
+﻿## echo "loading function"
 
 function Get-AwsMetadata {
     [CmdletBinding()]
