@@ -1,18 +1,18 @@
-﻿<#
-.Synopsis
-   Simplified command to get local host information from an EC2
-.DESCRIPTION
-   Simplified command to access the AWS metadata of the EC2. The function
-   requires no additional configuration beyond having an EC2 running the
-   metadata services which is typically running by default on launch of
-   an EC2 instance within AWS environment.
-   Information available can be found at
-   https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-data-categories.html
-.EXAMPLE
-   Get-AwsMetadata -Property "ami-id"
-.EXAMPLE
-   AwsHostInfo "ami-id"
-#>
+﻿# <#
+# .Synopsis
+#    Simplified command to get local host information from an EC2
+# .DESCRIPTION
+#    Simplified command to access the AWS metadata of the EC2. The function
+#    requires no additional configuration beyond having an EC2 running the
+#    metadata services which is typically running by default on launch of
+#    an EC2 instance within AWS environment.
+#    Information available can be found at
+#    https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-data-categories.html
+# .EXAMPLE
+#    Get-AwsMetadata -Property "ami-id"
+# .EXAMPLE
+#    AwsHostInfo "ami-id"
+# #>
 Function Get-AwsMetadata {
     [CmdletBinding()]
     [Alias()]
