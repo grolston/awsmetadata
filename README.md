@@ -1,6 +1,22 @@
 # AWS MetaData
 
-Simplified function that can be loaded into memory or added to scripts for quick access to AWS EC2 metadata. This function does not have any dependencies.
+Simplified function that can be loaded into memory or added to scripts for quick access to AWS EC2 metadata. Leverage the function to quickly discover some of the following information:
+
+- ami-id
+- ami-launch-index
+- ami-manifest-path
+- hostname
+- instance-action
+- instance-id
+- instance-type
+- local-hostname
+- local-ipv4
+- mac
+- profile
+- public-hostname
+- public-ipv4
+- reservation-id
+- security-groups
 
 ## Dependencies
 
@@ -14,6 +30,28 @@ Load the function into memory:
 
 iex $(iwr 'https://raw.githubusercontent.com/grolston/awsmetadata/master/AwsMetadata.ps1' -UseBasicParsing).Content
 
+```
+
+Once the function is loaded into the active session you can leverage it as such:
+
+```powershell
+Get-AwsMetadata -Property "ami-id"
+```
+
+```powershell
+Get-AwsMetadata -Property "hostname"
+```
+
+If the whole verb-noun powershell commands leave you lost or you absolutely hate typing more than you ever should, there is a simple and short alias you can use:
+
+```powershell
+AwsHostInfo -Property "hostname"
+```
+
+If that is not short enough, you can simply drop the parameter specification and run the bare minimum:
+
+```powershell
+AwsHostInfo hostname
 ```
 
 > **Note:** Loading this into memory does not save anything locally. The function can only be referenced in the session and once the session exits, the Get-AwsMetadata function will not persist.
@@ -38,6 +76,8 @@ The Get-AwsMetadata command looks to the local aws metadata service running on `
 - reservation-id
 - security-groups
 
-Output of the of the function returns a string result.
+Output of the of the function returns a **string** result.
 
 > **Note:** the deployed function also contains an alias `AWSHOSTINFO` for an intuitive reference.
+
+If you discover that you want a property that is not currently supported, just open an issue and it can be added in.
