@@ -38,6 +38,8 @@ Once the function is loaded into the active session you can leverage it as such:
 Get-AwsMetadata -Property "ami-id"
 ```
 
+another example:
+
 ```powershell
 Get-AwsMetadata -Property "hostname"
 ```
